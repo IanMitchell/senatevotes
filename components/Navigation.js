@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 
-export default function Navigation({ href, text }) {
+export default function Navigation({ href, as, text }) {
   return (
     <nav>
-      <Link href={href}>
+      <Link href={href} as={as}>
         <a className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"

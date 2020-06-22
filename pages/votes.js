@@ -13,7 +13,7 @@ export default function Senate({ years }) {
     <Main>
       <Social />
 
-      <Navigation href="/" text="Home" />
+      <Navigation href="/" as="/" text="Home" />
 
       <Heading className="mt-10 border-b-2 border-black mb-4">
         US Senate Votes
@@ -27,7 +27,7 @@ export default function Senate({ years }) {
         </div>
 
         {years.map(({ year, total, percentage }) => (
-          <Link key={year} href={`/votes/${year}`}>
+          <Link key={year} href="/votes/[year]" as={`/votes/${year}`}>
             <a className="block p-2 w-full md:w-1/2 lg:w-1/3">
               <Card
                 title={year}

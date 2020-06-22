@@ -19,7 +19,11 @@ export default function SenateVote({ year, population, vote }) {
       <Social />
 
       {year && (
-        <Navigation href={`/votes/${year}`} text={`All ${year} Votes`} />
+        <Navigation
+          href="/votes/[year]"
+          as={`/votes/${year}`}
+          text={`All ${year} Votes`}
+        />
       )}
 
       <DynamicChartFigure

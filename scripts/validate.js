@@ -45,39 +45,10 @@ votes.forEach((vote) => {
   );
 
   if (!valid) {
-    // console.error(`[VALIDATION ERROR]: ${date} / ${roll_call}`);
-    // console.log(total);
-    // console.log(realTotal);
+    console.error(`[VALIDATION ERROR]: ${date} / ${roll_call}`);
+  }
 
-    if (roll_call === 110 || roll_call === 28) {
-      console.error(`[VALIDATION ERROR]: ${date} / ${roll_call}`);
-      console.log('Listed Total:');
-      console.log(total);
-      console.log('REAL:');
-
-      ['D', 'R', 'I'].forEach((type) => {
-        const subTotal = positions.reduce(
-          (summary, position) => {
-            const key = position.vote_position.toLowerCase().replace(' ', '_');
-
-            if (position.party === type) {
-              summary[key] += 1;
-            }
-            return summary;
-          },
-          {
-            yes: 0,
-            no: 0,
-            present: 0,
-            not_voting: 0,
-          }
-        );
-
-        console.log(type);
-        console.log(subTotal);
-      });
-      console.log('Summary:');
-      console.log(realTotal);
-    }
+  if (positions.length === 0) {
+    console.error(`[VALIDATION ERROR][POSITIONS]: ${date} / ${roll_call}`);
   }
 });

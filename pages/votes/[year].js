@@ -69,7 +69,7 @@ export default function SenateVote({ year, votes }) {
     <Main>
       <Social />
 
-      <Navigation href="/votes" text="All Senate Votes" />
+      <Navigation href="/votes" as="/votes" text="All Senate Votes" />
 
       <Heading className="mt-10 border-b-2 border-black mb-4">
         US Senate Votes in {year}
@@ -117,7 +117,11 @@ export default function SenateVote({ year, votes }) {
                         ? '✅ Popular Outcome'
                         : '❌ Unpopular Outcome'}
                     </Pill>
-                    <Link href={`/votes/${year}/${summary.rollcall}`} passHref>
+                    <Link
+                      href="/votes/[year]/[vote]"
+                      as={`/votes/${year}/${summary.rollcall}`}
+                      passHref
+                    >
                       <Anchor>
                         Rollcall {summary.rollcall} &bull; {summary.title}
                       </Anchor>
