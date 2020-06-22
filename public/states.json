@@ -1,0 +1,282 @@
+{
+  "Alabama": {
+    "name": "Alabama",
+    "postal": "AL",
+    "FIP": "01"
+  },
+  "Alaska": {
+    "name": "Alaska",
+    "postal": "AK",
+    "FIP": "02"
+  },
+  "Arizona": {
+    "name": "Arizona",
+    "postal": "AZ",
+    "FIP": "04"
+  },
+  "Arkansas": {
+    "name": "Arkansas",
+    "postal": "AR",
+    "FIP": "05"
+  },
+  "California": {
+    "name": "California",
+    "postal": "CA",
+    "FIP": "06"
+  },
+  "Colorado": {
+    "name": "Colorado",
+    "postal": "CO",
+    "FIP": "08"
+  },
+  "Connecticut": {
+    "name": "Connecticut",
+    "postal": "CT",
+    "FIP": "09"
+  },
+  "Delaware": {
+    "name": "Delaware",
+    "postal": "DE",
+    "FIP": "10"
+  },
+  "Florida": {
+    "name": "Florida",
+    "postal": "FL",
+    "FIP": "12"
+  },
+  "Georgia": {
+    "name": "Georgia",
+    "postal": "GA",
+    "FIP": "13"
+  },
+  "Hawaii": {
+    "name": "Hawaii",
+    "postal": "HI",
+    "FIP": "15"
+  },
+  "Idaho": {
+    "name": "Idaho",
+    "postal": "ID",
+    "FIP": "16"
+  },
+  "Illinois": {
+    "name": "Illinois",
+    "postal": "IL",
+    "FIP": "17"
+  },
+  "Indiana": {
+    "name": "Indiana",
+    "postal": "IN",
+    "FIP": "18"
+  },
+  "Iowa": {
+    "name": "Iowa",
+    "postal": "IA",
+    "FIP": "19"
+  },
+  "Kansas": {
+    "name": "Kansas",
+    "postal": "KS",
+    "FIP": "20"
+  },
+  "Kentucky": {
+    "name": "Kentucky",
+    "postal": "KY",
+    "FIP": "21"
+  },
+  "Louisiana": {
+    "name": "Louisiana",
+    "postal": "LA",
+    "FIP": "22"
+  },
+  "Maine": {
+    "name": "Maine",
+    "postal": "ME",
+    "FIP": "23"
+  },
+  "Maryland": {
+    "name": "Maryland",
+    "postal": "MD",
+    "FIP": "24"
+  },
+  "Massachusetts": {
+    "name": "Massachusetts",
+    "postal": "MA",
+    "FIP": "25"
+  },
+  "Michigan": {
+    "name": "Michigan",
+    "postal": "MI",
+    "FIP": "26"
+  },
+  "Minnesota": {
+    "name": "Minnesota",
+    "postal": "MN",
+    "FIP": "27"
+  },
+  "Mississippi": {
+    "name": "Mississippi",
+    "postal": "MS",
+    "FIP": "28"
+  },
+  "Missouri": {
+    "name": "Missouri",
+    "postal": "MO",
+    "FIP": "29"
+  },
+  "Montana": {
+    "name": "Montana",
+    "postal": "MT",
+    "FIP": "30"
+  },
+  "Nebraska": {
+    "name": "Nebraska",
+    "postal": "NE",
+    "FIP": "31"
+  },
+  "Nevada": {
+    "name": "Nevada",
+    "postal": "NV",
+    "FIP": "32"
+  },
+  "New Hampshire": {
+    "name": "New Hampshire",
+    "postal": "NH",
+    "FIP": "33"
+  },
+  "New Jersey": {
+    "name": "New Jersey",
+    "postal": "NJ",
+    "FIP": "34"
+  },
+  "New Mexico": {
+    "name": "New Mexico",
+    "postal": "NM",
+    "FIP": "35"
+  },
+  "New York": {
+    "name": "New York",
+    "postal": "NY",
+    "FIP": "36"
+  },
+  "North Carolina": {
+    "name": "North Carolina",
+    "postal": "NC",
+    "FIP": "37"
+  },
+  "North Dakota": {
+    "name": "North Dakota",
+    "postal": "ND",
+    "FIP": "38"
+  },
+  "Ohio": {
+    "name": "Ohio",
+    "postal": "OH",
+    "FIP": "39"
+  },
+  "Oklahoma": {
+    "name": "Oklahoma",
+    "postal": "OK",
+    "FIP": "40"
+  },
+  "Oregon": {
+    "name": "Oregon",
+    "postal": "OR",
+    "FIP": "41"
+  },
+  "Pennsylvania": {
+    "name": "Pennsylvania",
+    "postal": "PA",
+    "FIP": "42"
+  },
+  "Rhode Island": {
+    "name": "Rhode Island",
+    "postal": "RI",
+    "FIP": "44"
+  },
+  "South Carolina": {
+    "name": "South Carolina",
+    "postal": "SC",
+    "FIP": "45"
+  },
+  "South Dakota": {
+    "name": "South Dakota",
+    "postal": "SD",
+    "FIP": "46"
+  },
+  "Tennessee": {
+    "name": "Tennessee",
+    "postal": "TN",
+    "FIP": "47"
+  },
+  "Texas": {
+    "name": "Texas",
+    "postal": "TX",
+    "FIP": "48"
+  },
+  "Utah": {
+    "name": "Utah",
+    "postal": "UT",
+    "FIP": "49"
+  },
+  "Vermont": {
+    "name": "Vermont",
+    "postal": "VT",
+    "FIP": "50"
+  },
+  "Virginia": {
+    "name": "Virginia",
+    "postal": "VA",
+    "FIP": "51"
+  },
+  "Washington": {
+    "name": "Washington",
+    "postal": "WA",
+    "FIP": "53"
+  },
+  "West Virginia": {
+    "name": "West Virginia",
+    "postal": "WV",
+    "FIP": "54"
+  },
+  "Wisconsin": {
+    "name": "Wisconsin",
+    "postal": "WI",
+    "FIP": "55"
+  },
+  "Wyoming": {
+    "name": "Wyoming",
+    "postal": "WY",
+    "FIP": "56"
+  },
+  "American Samoa": {
+    "name": "American Samoa",
+    "postal": "AS",
+    "FIP": "60"
+  },
+  "Guam": {
+    "name": "Guam",
+    "postal": "GU",
+    "FIP": "66"
+  },
+  "Northern Mariana Islands": {
+    "name": "Northern Mariana Islands",
+    "postal": "MP",
+    "FIP": "69"
+  },
+  "Puerto Rico": {
+    "name": "Puerto Rico",
+    "postal": "PR",
+    "FIP": "72"
+  },
+  "Virgin Islands": {
+    "name": "Virgin Islands",
+    "postal": "VI",
+    "FIP": "78"
+  },
+  "District of Columbia": {
+    "name": "District of Columbia",
+    "postal": "DC",
+    "FIP": "11"
+  }
+}
