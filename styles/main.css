@@ -9,3 +9,13 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+@media (min-width: 640px) {
+  .responsive-table {
+    display: inline-table !important;
+  }
+
+  .responsive-table thead tr:not(:first-child) {
+    display: none;
+  }
+}

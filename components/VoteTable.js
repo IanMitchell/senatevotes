@@ -5,20 +5,24 @@ import TH from './TH';
 import TR from './TR';
 
 export default function VoteTable({ vote, population }) {
+  const { positions } = vote.results.votes.vote;
+
   return (
-    <table className="table-auto w-full mt-8">
+    <table className="w-full text-xs md:text-base flex flex-row flex-no-wrap overflow-hidden my-5 mt-8 responsive-table">
       <thead>
-        <TR>
-          <TH>Name</TH>
-          <TH>Party</TH>
-          <TH>Vote</TH>
-          <TH>State</TH>
-          <TH>Population Represented</TH>
-        </TR>
+        {positions.map((position, idx) => (
+          <TR key={idx} offset={Boolean(idx % 2)} className="border text-left">
+            <TH className="border-b-2 md:border-0">Name</TH>
+            <TH className="border-b-2 md:border-0">Party</TH>
+            <TH className="border-b-2 md:border-0">Vote</TH>
+            <TH className="border-b-2 md:border-0">State</TH>
+            <TH>Pop. Represented</TH>
+          </TR>
+        ))}
       </thead>
-      <tbody>
-        {vote.results.votes.vote.positions.map((position, idx) => (
-          <TR offset={Boolean(idx % 2)} key={idx}>
+      <tbody className="flex-1 sm:flex-none">
+        {positions.map((position, idx) => (
+          <TR key={idx} offset={Boolean(idx % 2)}>
             <TD>{position.name}</TD>
             <TD>{position.party}</TD>
             <TD>{position.vote_position}</TD>
