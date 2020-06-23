@@ -15,7 +15,7 @@ export default function Footer() {
         </Anchor>
         .
       </p>
-      <p>
+      <p className="mt-4 md:mt-0">
         An interesting idea to fix this problem was published in the{' '}
         <Anchor href="https://harvardlawreview.org/2020/01/pack-the-union-a-proposal-to-admit-new-states-for-the-purpose-of-amending-the-constitution-to-ensure-equal-representation/">
           Harvard Law Review.
