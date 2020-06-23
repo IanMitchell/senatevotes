@@ -1,6 +1,4 @@
-// import MicroModal from 'micromodal';
 import React, { useEffect, useState } from 'react';
-import Analytics from '../components/Analytics';
 import ColorPickerTrigger from '../components/ColorPickerTrigger';
 import Modal from '../components/Modal';
 import ColorContext, { COLORS } from '../contexts/ColorContext';
@@ -17,6 +15,17 @@ export default function MyApp({ Component, pageProps }) {
       setMicroModal(lib.default);
     }
     loadLib();
+  }, []);
+
+  useEffect(() => {
+    let tracker = window.document.createElement('script');
+    let firstScript = window.document.getElementsByTagName('script')[0];
+    tracker.defer = true;
+    tracker.setAttribute('site', 'SKGURDXV');
+    tracker.setAttribute('spa', 'auto');
+    tracker.setAttribute('excluded-domains', 'localhost');
+    tracker.src = 'https://cdn.usefathom.com/script.js';
+    firstScript.parentNode.insertBefore(tracker, firstScript);
   }, []);
 
   return (
@@ -76,8 +85,6 @@ export default function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </Modal>
-
-      <Analytics />
     </ColorContext.Provider>
   );
 }
