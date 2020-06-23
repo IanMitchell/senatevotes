@@ -33,11 +33,7 @@ export default function MapFigure({ className, vote, population }) {
         },
         options: {
           legend: {
-            margin: 100,
             position: 'bottom',
-            labels: {
-              padding: 50,
-            },
           },
           scale: {
             projection: 'albersUsa',
