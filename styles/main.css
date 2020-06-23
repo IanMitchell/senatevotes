@@ -1,14 +1,8 @@
+/* purgecss start ignore */
 @import './switch.css';
 @import './microtip.css';
 @import './spinner.css';
 @import './modal.css';
-
-/* purgecss start ignore */
-@tailwind base;
-@tailwind components;
-/* purgecss end ignore */
-
-@tailwind utilities;
 
 @media (min-width: 640px) {
   .responsive-table {
@@ -19,3 +13,9 @@
     display: none;
   }
 }
+
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
