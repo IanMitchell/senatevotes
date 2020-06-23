@@ -20,7 +20,7 @@ export default function ColorManager({ onChange }) {
             MicroModal.close('color-picker');
           }}
         >
-          Colorblind? Reset to the defaults
+          Use Default
         </button>
 
         <div className="flex flex-col flex-auto mt-8">
