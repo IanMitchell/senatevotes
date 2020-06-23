@@ -51,7 +51,7 @@ export default function Home({ vote, unpopularPercentage, population }) {
         vote={vote}
       />
 
-      <Paragraph>
+      <Paragraph className="mt-10">
         There have been several requests for a tool to help visualize the
         inconsistency between Senate votes and the populations represented. The
         hope is that this website will help illuminate the unfairness and

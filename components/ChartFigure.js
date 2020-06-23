@@ -10,12 +10,10 @@ import {
   isResultSuccessful,
   getVoteTotals,
 } from '../lib/votes';
-import Anchor from './Anchor';
 import FigCaption from './FigCaption';
 import Figure from './Figure';
 import MapFigure from './MapFigure';
 import Spinner from './Spinner';
-import VoteTable from './VoteTable';
 import Pill from './Pill';
 
 function getLabels(data) {
@@ -211,17 +209,6 @@ export default function ChartFigure({
       )}
 
       <MapFigure className="mt-10" vote={vote} population={population} />
-
-      {!displayBreakdown && (
-        <Anchor
-          className="block text-center mt-8"
-          onClick={() => setDisplayBreakdown(true)}
-        >
-          View Breakdown
-        </Anchor>
-      )}
-
-      {displayBreakdown && <VoteTable vote={vote} population={population} />}
     </section>
   );
 }

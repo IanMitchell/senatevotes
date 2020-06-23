@@ -4,6 +4,7 @@ import Main from '../../../components/Main';
 import Navigation from '../../../components/Navigation';
 import Social from '../../../components/Social';
 import Spinner from '../../../components/Spinner';
+import VoteTable from '../../../components/VoteTable';
 import { getYears, getVotesInYear } from '../../../lib/pages';
 
 const DynamicChartFigure = dynamic(
@@ -26,12 +27,9 @@ export default function SenateVote({ year, population, vote }) {
         />
       )}
 
-      <DynamicChartFigure
-        id={vote}
-        population={population}
-        vote={vote}
-        showTable
-      />
+      <DynamicChartFigure id={vote} population={population} vote={vote} />
+
+      <VoteTable vote={vote} population={population} />
     </Main>
   );
 }
