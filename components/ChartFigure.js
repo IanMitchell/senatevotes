@@ -134,25 +134,27 @@ export default function ChartFigure({
 
   return (
     <section className="mt-10 mb-10">
-      <div className="flex flex-row justify-start border-b-2 pb-1">
+      <div className="flex flex-col md:flex-row justify-start border-b-2 pb-1">
         <h3 className="mr-6 font-bold">
           {number} &bull; {vote.results.votes.vote.vote_type} to pass
         </h3>
-        <Pill
-          type={isResultSuccessful(summary.outcome) ? 'success' : 'failure'}
-          className="flex self-center"
-        >
-          {isResultSuccessful(summary.outcome) ? 'Pass' : 'Fail'}
-        </Pill>
-        <Pill
-          type={summary.popular ? 'success' : 'failure'}
-          className="flex self-center "
-        >
-          {summary.popular ? '✅ Popular Outcome' : '❌ Unpopular Outcome'}
-        </Pill>
-        <div className="ml-auto">
+        <div className="flex flex-row border-b-2 pb-2 md:border-b-0 md:pb-0">
+          <Pill
+            type={isResultSuccessful(summary.outcome) ? 'success' : 'failure'}
+            className="flex self-center"
+          >
+            {isResultSuccessful(summary.outcome) ? 'Pass' : 'Fail'}
+          </Pill>
+          <Pill
+            type={summary.popular ? 'success' : 'failure'}
+            className="flex self-center "
+          >
+            {summary.popular ? '✅ Popular Outcome' : '❌ Unpopular Outcome'}
+          </Pill>
+        </div>
+        <div className="pt-4 pb-4 flex flex-row-reverse justify-end md:pt-0 md:pb-0 md:flex-row md:ml-auto">
           <label
-            className="inline-block align-top cursor-pointer text-sm mr-2"
+            className="inline-block align-top cursor-pointer text-sm ml-2 md:mr-2"
             htmlFor={`${id}-overlay-toggle`}
           >
             Overlay Charts
