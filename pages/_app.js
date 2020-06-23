@@ -38,7 +38,7 @@ export default function MyApp({ Component, pageProps }) {
             MicroModal?.close('color-picker');
           }}
         >
-          Colorblind? Try these colors
+          Colorblind? Reset to the defaults
         </button>
 
         <div className="flex flex-col flex-auto mt-8">

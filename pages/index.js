@@ -60,7 +60,7 @@ export default function Home({ vote, unpopularPercentage, population }) {
 
       <section className="flex justify-center m-10">
         <Link href="/votes">
-          <a className="bg-blue-500 hover:bg-blue-700 text-2xl text-white font-bold py-2 px-4 rounded">
+          <a className="bg-blue-500 hover:bg-blue-700 text-xl md:text-2xl text-white text-center font-bold py-2 px-4 rounded">
             View All Senate Votes
           </a>
         </Link>
