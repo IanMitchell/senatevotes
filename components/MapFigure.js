@@ -3,7 +3,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import classnames from 'classnames';
 import React, { useContext, useEffect, useRef } from 'react';
 import ColorContext from '../contexts/ColorContext';
-import { getStatePopulationVote } from '../lib/population';
+import { getStatePopulationVote, getTotalPopulation } from '../lib/population';
 import MapData from '../public/usa-map';
 import FigCaption from './FigCaption';
 
@@ -18,6 +18,7 @@ export default function MapFigure({ className, vote, population }) {
 
       const size = window.matchMedia('(max-width: 768px)').matches ? 100 : 200;
       const votes = getStatePopulationVote(vote, population, size);
+      const totalPopulation = getTotalPopulation(population);
 
       Chart.plugins.unregister(ChartDataLabels);
       new Chart(context, {
@@ -45,7 +46,11 @@ export default function MapFigure({ className, vote, population }) {
                   data.datasets[tooltipItem.datasetIndex].data[
                     tooltipItem.index
                   ];
-                return bubble.population.toLocaleString();
+
+                return `${bubble.population.toLocaleString()} (${
+                  Math.round(10000 * (bubble.population / totalPopulation)) /
+                  100
+                })%`;
               },
             },
           },

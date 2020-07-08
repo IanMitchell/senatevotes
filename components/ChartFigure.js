@@ -57,9 +57,18 @@ function createChart(context, type, data, colors) {
       tooltips: {
         callbacks: {
           label: (tooltipItem, data) =>
-            data.datasets[tooltipItem.datasetIndex].data[
+            `${data.datasets[tooltipItem.datasetIndex].data[
               tooltipItem.index
-            ].toLocaleString(),
+            ].toLocaleString()} (${Math.round(
+              100 *
+                (data.datasets[tooltipItem.datasetIndex].data[
+                  tooltipItem.index
+                ] /
+                  data.datasets[tooltipItem.datasetIndex].data.reduce(
+                    (sum, val) => sum + val,
+                    0
+                  ))
+            )}%)`,
         },
       },
     },
