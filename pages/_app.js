@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import * as Fathom from 'fathom-client';
 import ColorContext, { COLORS } from '../contexts/ColorContext';
 import useLocalStorage from '../hooks/useLocalStorage';
 import ColorPickerTrigger from '../components/ColorPickerTrigger';
@@ -14,18 +16,27 @@ const DynamicColorManager = dynamic(
 );
 
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   const [colors, setColors] = useLocalStorage('colors', COLORS);
 
   useEffect(() => {
-    let tracker = window.document.createElement('script');
-    let firstScript = window.document.getElementsByTagName('script')[0];
-    tracker.defer = true;
-    tracker.setAttribute('site', 'SKGURDXV');
-    tracker.setAttribute('spa', 'auto');
-    tracker.setAttribute('excluded-domains', 'localhost');
-    tracker.src = 'https://cdn.usefathom.com/script.js';
-    firstScript.parentNode.insertBefore(tracker, firstScript);
-  }, []);
+    // Initialize Fathom when the app loads
+    Fathom.load('SKGURDXV', {
+      includedDomains: ['senatevotes.us'],
+      url: 'https://iguana.senatevotes.us/script.js',
+    });
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview();
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete);
+    };
+  }, [router]);
 
   return (
     <ColorContext.Provider value={colors}>
