@@ -15,12 +15,12 @@ const years = files.map((filename) =>
 );
 
 years.forEach((year) => {
-  const directory = path.join(process.cwd(), `./content/votes/${year}`);
-  const files = fs
-    .readdirSync(directory)
+  const dir = path.join(process.cwd(), `./content/votes/${year}`);
+  const json = fs
+    .readdirSync(dir)
     .map((file) => require(`../content/votes/${year}/${file}`));
 
-  votes.push(...files);
+  votes.push(...json);
 });
 
 votes.forEach((vote) => {

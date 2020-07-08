@@ -50,14 +50,13 @@ function createChart(context, type, data, colors) {
       plugins: {
         datalabels: {
           color: 'white',
-          formatter: (value, context) =>
-            context.chart.data.labels[context.dataIndex],
+          formatter: (value, ctx) => context.chart.data.labels[ctx.dataIndex],
         },
       },
       tooltips: {
         callbacks: {
-          label: (tooltipItem, data) =>
-            data.datasets[tooltipItem.datasetIndex].data[
+          label: (tooltipItem, value) =>
+            value.datasets[tooltipItem.datasetIndex].data[
               tooltipItem.index
             ].toLocaleString(),
         },
@@ -67,13 +66,7 @@ function createChart(context, type, data, colors) {
   });
 }
 
-export default function ChartFigure({
-  id,
-  vote,
-  population,
-  showTable = false,
-}) {
-  const [displayBreakdown, setDisplayBreakdown] = useState(showTable);
+export default function ChartFigure({ id, vote, population }) {
   const [overlay, setOverlay] = useLocalStorage('overlay', true);
   const colors = useContext(ColorContext);
 
