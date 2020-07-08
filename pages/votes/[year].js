@@ -7,7 +7,7 @@ import Navigation from '../../components/Navigation';
 import Pill from '../../components/Pill';
 import Social from '../../components/Social';
 import SubHeading from '../../components/SubHeading';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import useBoolean from '../../hooks/useBoolean';
 import {
   getVoteTitleAndNumber,
   isVotePopular,
@@ -52,8 +52,7 @@ function summarizeByMonth(votes, population) {
 }
 
 export default function SenateVote({ year, votes }) {
-  const [unpopularFilter, setUnpopularFilter] = useLocalStorage(
-    'unpopular-filter',
+  const { value: unpopularFilter, toggle: toggleUnpopularFilter } = useBoolean(
     false
   );
 
@@ -82,7 +81,7 @@ export default function SenateVote({ year, votes }) {
           name="popular-toggle"
           id="popular-toggle"
           defaultChecked={unpopularFilter}
-          onClick={() => setUnpopularFilter(!unpopularFilter)}
+          onClick={toggleUnpopularFilter}
         />
         <label
           className="inline-block align-top cursor-pointer text-sm mr-2"
