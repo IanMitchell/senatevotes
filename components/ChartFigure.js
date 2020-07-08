@@ -83,6 +83,7 @@ export default function ChartFigure({
 
   const { title, number } = getVoteTitleAndNumber(vote);
   const totals = getVoteTotals(vote);
+  const pop = getTotalPopulationVote(vote, population);
   const summary = {
     outcome: vote.results.votes.vote.result,
     popular: isVotePopular(vote, population),
@@ -109,15 +110,13 @@ export default function ChartFigure({
   useEffect(() => {
     if (!loading && populationRef.current) {
       const ctx = populationRef.current.getContext('2d');
-      const pop = getTotalPopulationVote(vote, population);
       createChart(ctx, 'pie', [[pop.yes, pop.no, pop.neutral]], colors);
     }
-  }, [loading, populationRef, overlay, colors, vote, population]);
+  }, [loading, populationRef, overlay, colors, pop]);
 
   useEffect(() => {
     if (!loading && overlayRef.current) {
       const ctx = overlayRef.current.getContext('2d');
-      const pop = getTotalPopulationVote(vote, population);
       createChart(
         ctx,
         'doughnut',
@@ -128,7 +127,7 @@ export default function ChartFigure({
         colors
       );
     }
-  }, [loading, overlayRef, overlay, colors, population, vote, totals]);
+  }, [loading, overlayRef, overlay, colors, pop, totals]);
 
   return (
     <section className="mt-10 mb-10">
@@ -177,7 +176,10 @@ export default function ChartFigure({
         <div className="flex flex-col md:flex-row flex-auto">
           <Figure>
             <canvas ref={voteRef} aria-label="Senate Vote">
-              <p>Fallback here</p>
+              <p>
+                {totals.yes} Yes votes, {totals.no} No votes,{' '}
+                {totals.not_voting + totals.present} Present or Not Voting.
+              </p>
             </canvas>
             <FigCaption>Senate Vote</FigCaption>
           </Figure>
@@ -187,7 +189,12 @@ export default function ChartFigure({
               ref={populationRef}
               aria-label="Represented Population Vote"
             >
-              <p>Fallback here</p>
+              <p>
+                {pop.yes.toLocaleString()} people represented by Yes votes,{' '}
+                {pop.no.toLocaleString()} people represented by No votes,{' '}
+                {pop.neutral} people represented by Present votes or no vote
+                cast.
+              </p>
             </canvas>
             <FigCaption>Population Represented</FigCaption>
           </Figure>
@@ -200,7 +207,15 @@ export default function ChartFigure({
             ref={overlayRef}
             aria-label="Senate Vote Overlaid with Population Vote"
           >
-            <p>Fallback here</p>
+            <p>
+              {totals.yes} Yes votes, {totals.no} No votes,{' '}
+              {totals.not_voting + totals.present} Present or Not Voting.
+            </p>
+            <p>
+              {pop.yes.toLocaleString()} people represented by Yes votes,{' '}
+              {pop.no.toLocaleString()} people represented by No votes,{' '}
+              {pop.neutral} people represented by Present votes or no vote cast.
+            </p>
           </canvas>
           <FigCaption>
             Inner: Senate Vote. Outer: Population Represented

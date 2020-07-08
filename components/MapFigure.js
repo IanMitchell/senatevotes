@@ -58,7 +58,10 @@ export default function MapFigure({ className, vote, population }) {
   return (
     <figure className={classnames(className)}>
       <canvas ref={mapRef} aria-label="Map Vote">
-        <p>Fallback here</p>
+        <p>
+          A visual representation of state population size and their
+          representative votes.
+        </p>
       </canvas>
       <FigCaption>Map of Popular Vote</FigCaption>
     </figure>
