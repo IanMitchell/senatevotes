@@ -63,9 +63,7 @@ const STATES = [
 ];
 
 const json = {};
-STATES.forEach((state, index) => {
-  json[state] = POPULATION[index];
-});
+STATES.forEach((state, index) => (json[state] = POPULATION[index]));
 
 fs.writeFileSync(
   path.resolve(

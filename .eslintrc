@@ -1,7 +1,4 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "prettier"],
-  "rules": {
-    "react/prop-types": 0,
-    "react/jsx-filename-extension": 0
-  }
+  "parser": "babel-eslint",
+  "extends": "airbnb/hooks"
 }
