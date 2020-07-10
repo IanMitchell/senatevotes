@@ -66,7 +66,10 @@ export default function SenateVote({ year, votes }) {
 
   return (
     <Main>
-      <Social />
+      <Social
+        title={`${year} Votes | Senate Votes`}
+        description={`A list of all the votes the U.S. Senate made in ${year}.`}
+      />
 
       <Navigation href="/votes" as="/votes" text="All Senate Votes" />
 

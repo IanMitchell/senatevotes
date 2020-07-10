@@ -20,7 +20,10 @@ import { getTotalPopulationVote } from '../lib/population';
 export default function Senate({ years, leaderboard }) {
   return (
     <Main>
-      <Social />
+      <Social
+        title="Senate Votes"
+        description="A list of years tracked by the Senate Votes website, which compares the vote with represented populations"
+      />
 
       <Navigation href="/" as="/" text="Home" />
 

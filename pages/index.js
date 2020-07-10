@@ -16,7 +16,10 @@ const DynamicChartFigure = dynamic(() => import('../components/ChartFigure'), {
 export default function Home({ vote, unpopularPercentage, population }) {
   return (
     <Main>
-      <Social />
+      <Social
+        title="Senate Votes"
+        description="Senate Votes tracks the U.S. Senate votes and compares the outcome with the represented population"
+      />
 
       <Heading className="mt-10 lg:mt-20">Over the past twenty years,</Heading>
 

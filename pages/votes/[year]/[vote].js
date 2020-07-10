@@ -15,9 +15,14 @@ const DynamicChartFigure = dynamic(
 );
 
 export default function SenateVote({ year, population, vote }) {
+  const { title, number } = getVoteTitleAndNumber(vote);
+
   return (
     <Main>
-      <Social />
+      <Social
+        title={`${year} ${number}: ${title} | Senate Votes`}
+        description={`Senate vote breakdown and population popularity for the U.S. Senate vote ${year}-${number}: ${title}`}
+      />
 
       {year && (
         <Navigation

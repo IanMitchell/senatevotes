@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import * as Fathom from 'fathom-client';
@@ -40,6 +41,26 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <ColorContext.Provider value={colors}>
+      <Head>
+        <meta name="twitter:card" content="summary" key="twitter-card" />
+        <meta
+          name="twitter:creator"
+          content="@IanMitchel1"
+          key="twitter-handle"
+        />
+
+        <meta
+          property="og:url"
+          content={`https://senatevotes.us${router.asPath}`}
+          key="og-url"
+        />
+        <meta property="og:image" content="/logo.png" key="og-image" />
+        <meta
+          property="og:site_name"
+          content="Senate Votes"
+          key="og-site-name"
+        />
+      </Head>
       <DynamicColorManager onChange={setColors} />
       <Component {...pageProps} />
     </ColorContext.Provider>
