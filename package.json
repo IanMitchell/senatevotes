@@ -24,7 +24,8 @@
     "postcss-import": "^12.0.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "victory": "^35.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

@@ -11,6 +11,7 @@ import { getYears, getVotesInYear } from '../lib/pages';
 
 const DynamicChartFigure = dynamic(() => import('../components/ChartFigure'), {
   loading: () => <Spinner />,
+  ssr: false,
 });
 
 export default function Home({ vote, unpopularPercentage, population }) {

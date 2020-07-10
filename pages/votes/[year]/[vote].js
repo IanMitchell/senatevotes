@@ -11,6 +11,7 @@ const DynamicChartFigure = dynamic(
   () => import('../../../components/ChartFigure'),
   {
     loading: () => <Spinner />,
+    ssr: false,
   }
 );
 

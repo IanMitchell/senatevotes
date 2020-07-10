@@ -15,6 +15,11 @@ import Figure from './Figure';
 import MapFigure from './MapFigure';
 import Spinner from './Spinner';
 import Pill from './Pill';
+import { VictoryPie, VictoryTooltip } from 'victory';
+
+function getPercentage(value, ...entries) {
+  return 100 * Math.round(value / entries.reduce((sum, val) => sum + val, 0));
+}
 
 function getLabels(data) {
   const labels = [];
@@ -98,14 +103,8 @@ export default function ChartFigure({
     popular: isVotePopular(vote, population),
   };
 
-  // Fixes SSR with localstorage
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (!loading && voteRef.current) {
+    if (voteRef.current) {
       const ctx = voteRef.current.getContext('2d');
       createChart(
         ctx,
@@ -114,17 +113,17 @@ export default function ChartFigure({
         colors
       );
     }
-  }, [loading, voteRef, overlay, colors, vote, totals]);
+  }, [voteRef, overlay, colors, vote, totals]);
 
   useEffect(() => {
-    if (!loading && populationRef.current) {
+    if (populationRef.current) {
       const ctx = populationRef.current.getContext('2d');
       createChart(ctx, 'pie', [[pop.yes, pop.no, pop.neutral]], colors);
     }
-  }, [loading, populationRef, overlay, colors, pop]);
+  }, [populationRef, overlay, colors, pop]);
 
   useEffect(() => {
-    if (!loading && overlayRef.current) {
+    if (overlayRef.current) {
       const ctx = overlayRef.current.getContext('2d');
       createChart(
         ctx,
@@ -136,7 +135,7 @@ export default function ChartFigure({
         colors
       );
     }
-  }, [loading, overlayRef, overlay, colors, pop, totals]);
+  }, [overlayRef, overlay, colors, pop, totals]);
 
   return (
     <section className="mt-10 mb-10">
@@ -179,22 +178,34 @@ export default function ChartFigure({
         <h4 className="mr-auto text-lg font-bold">{title}</h4>
       </header>
 
-      {loading && <Spinner />}
-
-      {!loading && !overlay && (
+      {!overlay && (
         <div className="flex flex-col md:flex-row flex-auto">
           <Figure>
-            <canvas ref={voteRef} aria-label="Senate Vote">
+            {/* <canvas ref={voteRef} aria-label="Senate Vote">
               <p>
                 {totals.yes} Yes votes, {totals.no} No votes,{' '}
                 {totals.not_voting + totals.present} Present or Not Voting.
               </p>
-            </canvas>
+            </canvas> */}
+            <VictoryPie
+              categories={{ x: ['Yes', 'No', 'Abstain'] }}
+              data={[
+                { x: 'Yes', y: totals.yes, label: totals.yes },
+                { x: 'No', y: totals.no, label: totals.no },
+                {
+                  x: 'Abstain',
+                  y: totals.present + totals.not_voting,
+                  label: totals.present + totals.not_voting,
+                },
+              ]}
+              colorScale={Object.values(colors)}
+              labelComponent={<VictoryTooltip cornerRadius={6} />}
+            />
             <FigCaption>Senate Vote</FigCaption>
           </Figure>
 
           <Figure>
-            <canvas
+            {/* <canvas
               ref={populationRef}
               aria-label="Represented Population Vote"
             >
@@ -204,13 +215,44 @@ export default function ChartFigure({
                 {pop.neutral} people represented by Present votes or no vote
                 cast.
               </p>
-            </canvas>
+            </canvas> */}
+            <VictoryPie
+              categories={{ x: ['Yes', 'No', 'Abstain'] }}
+              data={[
+                {
+                  x: 'Yes',
+                  y: pop.yes,
+                  label: `${pop.yes.toLocaleString()} (${getPercentage(
+                    pop.yes,
+                    ...Object.values(pop)
+                  )})%`,
+                },
+                {
+                  x: 'No',
+                  y: pop.no,
+                  label: `${pop.no.toLocaleString()} (${getPercentage(
+                    pop.no,
+                    ...Object.values(pop)
+                  )})%`,
+                },
+                {
+                  x: 'Abstain',
+                  y: pop.neutral,
+                  label: `${pop.neutral.toLocaleString()} (${getPercentage(
+                    pop.neutral,
+                    ...Object.values(pop)
+                  )})%`,
+                },
+              ]}
+              colorScale={Object.values(colors)}
+              labelComponent={<VictoryTooltip cornerRadius={6} />}
+            />
             <FigCaption>Population Represented</FigCaption>
           </Figure>
         </div>
       )}
 
-      {!loading && overlay && (
+      {overlay && (
         <figure>
           <canvas
             ref={overlayRef}
