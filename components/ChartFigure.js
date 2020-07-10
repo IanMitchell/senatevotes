@@ -1,5 +1,12 @@
 import React, { useContext } from 'react';
-import { VictoryPie, VictoryTooltip } from 'victory';
+import {
+  VictoryPie,
+  VictoryChart,
+  VictoryStack,
+  VictoryBar,
+  VictoryAxis,
+  VictoryTooltip,
+} from 'victory';
 import ColorContext from '../contexts/ColorContext';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { getTotalPopulationVote } from '../lib/population';
@@ -138,7 +145,79 @@ export default function ChartFigure({
 
       {overlay && (
         <figure>
-          {/* TODO! */}
+          <VictoryChart domainPadding={{ x: 30, y: 20 }}>
+            <VictoryStack colorScale={Object.values(colors)}>
+              <VictoryBar
+                data={[
+                  {
+                    x: 'Senate',
+                    y: getPercentage(totals.yes, Object.values(totals)),
+                    label: totals.yes,
+                  },
+                  {
+                    x: 'Population',
+                    y: getPercentage(pop.yes, Object.values(pop)),
+                    label: pop.yes.toLocaleString(),
+                  },
+                ]}
+                horizontal
+                labelComponent={
+                  <VictoryTooltip
+                    text={({ datum }) => datum.label ?? datum.x}
+                  />
+                }
+              />
+              <VictoryBar
+                data={[
+                  {
+                    x: 'Senate',
+                    y: getPercentage(totals.no, Object.values(totals)),
+                    label: totals.no,
+                  },
+                  {
+                    x: 'Population',
+                    y: getPercentage(pop.no, Object.values(pop)),
+                    label: pop.no.toLocaleString(),
+                  },
+                ]}
+                horizontal
+                labelComponent={
+                  <VictoryTooltip
+                    text={({ datum }) => datum.label ?? datum.x}
+                  />
+                }
+              />
+              <VictoryBar
+                data={[
+                  {
+                    x: 'Senate',
+                    y: getPercentage(
+                      totals.present + totals.not_voting,
+                      Object.values(totals)
+                    ),
+                    label: totals.present + totals.not_voting,
+                  },
+                  {
+                    x: 'Population',
+                    y: getPercentage(pop.neutral, Object.values(pop)),
+                    label: pop.neutral.toLocaleString(),
+                  },
+                ]}
+                horizontal
+                labelComponent={
+                  <VictoryTooltip
+                    text={({ datum }) => datum.label ?? datum.x}
+                  />
+                }
+              />
+            </VictoryStack>
+            <VictoryAxis
+              dependentAxis
+              tickValues={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+              tickFormat={(tick) => `${tick}%`}
+            />
+            <VictoryAxis tickFormat={['Senate', 'Population']} />
+          </VictoryChart>
           <FigCaption>
             Inner: Senate Vote. Outer: Population Represented
           </FigCaption>
