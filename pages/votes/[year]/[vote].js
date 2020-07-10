@@ -6,6 +6,7 @@ import Social from '../../../components/Social';
 import Spinner from '../../../components/Spinner';
 import VoteTable from '../../../components/VoteTable';
 import { getYears, getVotesInYear } from '../../../lib/pages';
+import { getVoteTitleAndNumber } from '../../../lib/votes';
 
 const DynamicChartFigure = dynamic(
   () => import('../../../components/ChartFigure'),
