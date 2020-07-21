@@ -9,6 +9,7 @@ import {
   isVotePopular,
   isResultSuccessful,
   getVoteTotals,
+  getVotePassPercentage,
 } from '../lib/votes';
 import FigCaption from './FigCaption';
 import Figure from './Figure';
@@ -94,6 +95,7 @@ export default function ChartFigure({
   const { title, number } = getVoteTitleAndNumber(vote);
   const totals = getVoteTotals(vote);
   const pop = getTotalPopulationVote(vote, population);
+  const passPercent = Math.round(100 * getVotePassPercentage(vote));
   const summary = {
     outcome: vote.results.votes.vote.result,
     popular: isVotePopular(vote, population),
@@ -188,10 +190,13 @@ export default function ChartFigure({
             <canvas ref={voteRef} aria-label="Senate Vote">
               <p>
                 {totals.yes} Yes votes, {totals.no} No votes,{' '}
-                {totals.not_voting + totals.present} Present or Not Voting.
+                {totals.not_voting + totals.present} Present or Not Voting.{' '}
+                {passPercent}% required to pass.
               </p>
             </canvas>
-            <FigCaption>Senate Vote</FigCaption>
+            <FigCaption>
+              Senate Vote. {passPercent}% required to pass.
+            </FigCaption>
           </Figure>
 
           <Figure>
@@ -226,9 +231,11 @@ export default function ChartFigure({
               {pop.no.toLocaleString()} people represented by No votes,{' '}
               {pop.neutral} people represented by Present votes or no vote cast.
             </p>
+            <p>{passPercent}% required to pass.</p>
           </canvas>
           <FigCaption>
-            Inner: Senate Vote. Outer: Population Represented
+            Inner: Senate Vote. Outer: Population Represented. {passPercent}%
+            required to pass.
           </FigCaption>
         </figure>
       )}
