@@ -59,16 +59,18 @@ function createChart(context, type, data, colors) {
           label: (tooltipItem, data) =>
             `${data.datasets[tooltipItem.datasetIndex].data[
               tooltipItem.index
-            ].toLocaleString()} (${Math.round(
-              100 *
-                (data.datasets[tooltipItem.datasetIndex].data[
-                  tooltipItem.index
-                ] /
-                  data.datasets[tooltipItem.datasetIndex].data.reduce(
-                    (sum, val) => sum + val,
-                    0
-                  ))
-            )}%)`,
+            ].toLocaleString()} (${
+              Math.round(
+                10000 *
+                  (data.datasets[tooltipItem.datasetIndex].data[
+                    tooltipItem.index
+                  ] /
+                    data.datasets[tooltipItem.datasetIndex].data.reduce(
+                      (sum, val) => sum + val,
+                      0
+                    ))
+              ) / 100
+            }%)`,
         },
       },
     },
@@ -82,7 +84,6 @@ export default function ChartFigure({
   population,
   showTable = false,
 }) {
-  const [displayBreakdown, setDisplayBreakdown] = useState(showTable);
   const [overlay, setOverlay] = useLocalStorage('overlay', true);
   const colors = useContext(ColorContext);
 

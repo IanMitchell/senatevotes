@@ -25,7 +25,7 @@ export default function Home({ vote, unpopularPercentage, population }) {
 
       <Heading className="mb-10">
         <span className="font-black">{unpopularPercentage}%</span> of the Senate
-        votes were unpopular - they did not reflect the population's opinion.
+        votes did not reflect the majority of represented population.
       </Heading>
 
       <Paragraph>
