@@ -42,10 +42,9 @@ export default function Home({ vote, unpopularPercentage, population }) {
         impeachment trial. This brought the discussions about the Senate's
         unequal representation and distribution of power into the forefront of
         political dialogue again. Even though the represented votes wouldn't
-        have crossed the 60% threshold, this vote was notable in that &gt;50% of
-        the population represented supported impeachment while &lt;50% of
-        Senators did. This was compounded by the manner in which the Senate
-        failed to thoroughly consider the impeachment.
+        have crossed the 60% threshold, this vote was notable in that more than
+        50% of the population represented supported impeachment while less than
+        50% of Senators did.
       </Paragraph>
 
       <DynamicChartFigure
