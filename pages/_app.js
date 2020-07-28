@@ -42,6 +42,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <ColorContext.Provider value={colors}>
       <Head>
+        <link key="favicon" rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link key="alt-faviocn" rel="alternate icon" href="/favicon.ico" />
+
         <meta name="twitter:card" content="summary" key="twitter-card" />
         <meta
           name="twitter:creator"
