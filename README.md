@@ -1,8 +1,12 @@
-# senatevotes.us
+<h1 align="center">Senate Votes</h1>
+
+<p align="center">
+    <img src="https://github.com/ianmitchell/senatevotes/raw/master/public/logo.svg?sanitize=true">
+</p>
 
 ## Tracking Unpopular Senate Votes
 
-This website helps visualize how many votes in the US Senate have been unpopular over the past years.
+https://senatevotes.us helps visualize how many votes in the US Senate have been unpopular over the past years.
 
 ## Development
 
@@ -12,5 +16,5 @@ With Node.js 12+ installed, run the following commands:
 
     $ npm i
     $ npm run dev
-  
+
  The website should be visible at localhost:3000
