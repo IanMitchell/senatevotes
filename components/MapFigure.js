@@ -50,7 +50,7 @@ export default function MapFigure({ className, vote, population }) {
                 return `${bubble.population.toLocaleString()} (${
                   Math.round(10000 * (bubble.population / totalPopulation)) /
                   100
-                })%`;
+                }%)`;
               },
             },
           },
