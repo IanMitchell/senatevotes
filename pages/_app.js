@@ -57,7 +57,11 @@ export default function MyApp({ Component, pageProps }) {
           content={`https://senatevotes.us${router.asPath}`}
           key="og-url"
         />
-        <meta property="og:image" content="/social.png" key="og-image" />
+        <meta
+          property="og:image"
+          content="https://senatevotes.us/social.png"
+          key="og-image"
+        />
         <meta
           property="og:site_name"
           content="Senate Votes"
