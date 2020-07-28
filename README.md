@@ -1,8 +1,8 @@
-<h1 align="center">Senate Votes</h1>
-
 <p align="center">
-    <img src="https://github.com/ianmitchell/senatevotes/raw/master/public/logo.svg?sanitize=true">
+    <img height="128" width="128" src="https://github.com/ianmitchell/senatevotes/raw/master/public/logo.svg?sanitize=true">
 </p>
+
+<h1 align="center">Senate Votes</h1>
 
 ## Tracking Unpopular Senate Votes
 
