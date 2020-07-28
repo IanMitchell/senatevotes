@@ -10,11 +10,11 @@ https://senatevotes.us helps visualize how many votes in the US Senate have been
 
 ## Development
 
-This is a pretty standard Next.js website - reading the [official documentation](https://nextjs.org/docs/getting-started) will help you understand this website a lot.
-
 With Node.js 12+ installed, run the following commands:
 
     $ npm i
     $ npm run dev
 
- The website should be visible at localhost:3000
+The website should be visible at localhost:3000
+
+This is a Next.js website that uses the Static Site Generation methods added in version 9 - reading the [official documentation](https://nextjs.org/docs/getting-started) will help you understand the structure.
