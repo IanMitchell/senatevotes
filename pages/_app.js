@@ -37,7 +37,7 @@ export default function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', onRouteChangeComplete);
     };
-  }, [router]);
+  }, []);
 
   return (
     <ColorContext.Provider value={colors}>
